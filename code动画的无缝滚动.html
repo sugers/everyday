@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 882px;
+            height: 86px;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        ul{
+            width: 200%;
+            list-style: none;
+            cursor:pointer;
+            /*调用动画*/
+            animation-name: listimg;
+            animation-duration: 7s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        li{
+            float:left;
+        }
+        div:hover ul{
+            animation-play-state: paused;
+        }
+
+
+
+
+        /*不管37二十一先写个动画*/
+        @keyframes listimg {
+            from{
+            }
+            to{
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+        <li><img src="images/3.jpg" alt=""/></li>
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/5.jpg" alt=""/></li>
+        <li><img src="images/6.jpg" alt=""/></li>
+        <li><img src="images/7.jpg" alt=""/></li>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+        <li><img src="images/3.jpg" alt=""/></li>
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/5.jpg" alt=""/></li>
+        <li><img src="images/6.jpg" alt=""/></li>
+        <li><img src="images/7.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>

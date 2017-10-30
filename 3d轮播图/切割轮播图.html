@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 560px;
+            height: 300px;
+            margin: 100px auto ;
+            position: relative;
+        }
+        div ul{
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            /*transform: rotate3d(1,1,0,-30deg);*/
+            transform-style: preserve-3d
+        }
+        div ul li {
+            width: 20%;
+            height: 100%;
+            float: left;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+
+        }
+        div ul li span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        div ul li:nth-of-type(2)>span{
+            background-position: -112px;
+        }
+        div ul li:nth-of-type(3)>span{
+            background-position: -224px;
+        }
+        div ul li:nth-of-type(4)>span{
+            background-position: -336px;
+        }
+        div ul li:nth-of-type(5)>span{
+            background-position: -448px;
+        }
+
+        div ul li span:nth-of-type(1){
+                transform: translateZ(150px);
+                background-image: url(images/q1.jpg);
+            }
+        div ul li span:nth-of-type(2){
+            transform: translateY(-150px) rotateX(90deg);
+            background-image: url(images/q2.jpg);
+        }
+        div ul li span:nth-of-type(3){
+            transform: translateZ(-150px) rotateX(180deg);
+            background-image: url(images/q3.jpg);
+        }
+        div ul li span:nth-of-type(4){
+            transform: translateY(150px) rotateX(-90deg);
+            background-image: url(images/q4.jpg);
+        }
+        div .arowleft,div .arowright{
+            font-size: 50px;
+            color: #fff;
+            padding:20px 10px;
+            cursor: pointer;
+            background-color: rgba(255,255,255,.3);
+        }
+        div .arowleft{
+            position: absolute;
+            left:0;
+            top: 50%;
+            margin-top: -53px;
+        }
+        div .arowright{
+            position: absolute;
+            right:0;
+            top: 50%;
+            margin-top: -53px;
+        }
+    </style>
+</head>
+<body>
+ <div>
+     <ul>
+         <li>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </li>
+
+         <li>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </li>
+
+         <li>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </li>
+
+         <li>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </li>
+
+         <li>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </li>
+     </ul>
+     <span class="arowleft">&lt;</span>
+     <span class="arowright">&gt;</span>
+ </div>
+ <script src="js/jquery.min.js"></script>
+ <script>
+     $(function(){
+         var list=$("li")
+         var currenIndex=0
+         var flag=true
+         $(".arowright").on("click",function(){
+             if(flag==true){
+                 currenIndex--;
+                 flag=false
+             }
+
+            $(list).each(function(index,value){
+                $(this).css({
+                    "transform":"rotateX("+currenIndex*90+"deg)",
+                    "transition-delay":(index*0.2)+"s"
+                })
+            })
+             setTimeout(function(){
+                 flag=true
+             },1000)
+         })
+         $(".arowleft").on("click",function(){
+             if(flag==true){
+                 currenIndex++;
+                 flag=false
+             }
+
+             $(list).each(function(index,value){
+                 $(this).css({
+                     "transform":"rotateX("+currenIndex*90+"deg)",
+                     "transition-delay":(index*0.2)+"s"
+                 })
+             })
+             setTimeout(function(){
+                 flag=true
+             },1000)
+         })
+     })
+
+ </script>
+</body>
+</html>

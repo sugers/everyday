@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    选择文件： <input type="file" id="myFile">
+</form>
+<img src="" alt="">
+<script>
+    /*即时：onchange事件可以监听file元素的文件选择变化*/
+    var fileDom=document.querySelector("#myFile");
+    fileDom.onchange=function(){
+        /*code a little , debug a little*/
+        /*预览：就是读取当前文件的内容，展示在img标签中
+        * img的src可以指定两种值：src=url    src=dataUrl*/
+        /*获取当前用户选择的文件对象*/
+        var file=fileDom.files[0];
+        var reader=new FileReader();
+        /*读取方法本身并没有返回值，它是将数据读取完毕之后存储在读取对象的result属性中*/
+        reader.readAsDataURL(file);
+        /*监听当前读取文件是否已成功*/
+        reader.onload=function(){
+        //    console.log(reader.result);
+            document.querySelector("img").src=reader.result;
+        }
+    }
+</script>
+</body>
+</html>

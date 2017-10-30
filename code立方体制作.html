@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            position: relative;
+            transform:rotate3d(1,1,0,-30deg);
+            transform-style: preserve-3d;
+            perspective:10px;
+            perspective-origin:0;
+        }
+        .box .son{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.5;
+        }
+        .front{
+            background-color: red;
+            transform: translateZ(100px);
+        }
+        .back{
+            background-color: skyblue;
+            transform: translateZ(-100px) rotateY(-180deg);
+        }
+        .left{
+            background-color: yellow;
+            transform: translateX(-100px) rotateY(90deg);
+        }
+        .right{
+            background-color: pink;
+            transform: translateX(100px) rotateY(-90deg);
+        }
+        .top{
+              background-color: purple;
+            transform: translateY(-100px) rotateX(90deg)
+          }
+        .bottom{
+            background-color: green;
+            transform: translateY(100px) rotateX(-90deg)
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box"><div></div>
+    <div class="front son">front</div>
+    <div class="back son">back</div>
+    <div class="left son">left</div>
+    <div class="right son">right</div>
+    <div class="top son">top</div>
+    <div class="bottom son">bottom</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

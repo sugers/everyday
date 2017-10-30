@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock{
+            width: 300px;
+            height: 290px;
+            border-radius: 50%;
+            border: 10px solid #ccc;
+            margin:100px auto;
+            position: relative;
+        }
+        .line{
+            width: 6px;
+            height: 300px;
+            background-color: #ccc;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+        }
+        .line1,.line4{
+            width: 8px;
+        }
+        .line2{
+            transform:translate(-50% ,-50%) rotate(30deg);
+        }
+        .line4{
+            transform:translate(-50% ,-50%) rotate(90deg);
+        }
+        .line3{
+            transform:translate(-50% ,-50%) rotate(60deg);
+        }
+        .line5{
+            transform:translate(-50% ,-50%) rotate(120deg);
+        }
+        .line6{
+            transform:translate(-50% ,-50%) rotate(150deg);
+        }
+        .cover{
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+        }
+        .hour {
+            width: 8px;
+            height: 100px;
+            background-color: skyblue;
+            animation-name: trans;
+            animation-duration: 43200s;
+            animation-timing-function: linear;
+            animation-iteration-count:infinite ;
+
+        }
+        .minute{
+            width: 6px;
+            height: 90px;
+            background-color: red;
+            animation: trans 3600s linear infinite;
+        }
+        .second{
+            width: 4px;
+            height: 80px;
+            background-color: pink;
+            animation: trans 60s steps(60) infinite ;
+        }
+        .hour, .minute,.second{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-100%);
+            transform-origin: center bottom;
+        }
+        .cover1{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #4274cc;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+        }
+        /*创建动画*/
+        @keyframes trans {
+            from{
+                transform:translate(-50% ,-100%) rotate(0deg);
+            }
+            to{
+                transform:translate(-50% ,-100%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+        <div class="line1 line"></div>
+        <div class="line2 line"></div>
+        <div class="line3 line"></div>
+        <div class="line4 line"></div>
+        <div class="line5 line"></div>
+        <div class="line6 line"></div>
+        <div class="cover"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+        <div class="cover1"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 720px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="../images/l1.jpg" alt=""><br>
+    <input type="button" value="全屏" id="fullScreen">
+    <input type="button" value="退出全屏" id="cancelFullScreen">
+    <input type="button" value="判断是否全屏" id="isFullScreen">
+</div>
+<script>
+    var div=document.querySelector("div");
+    /*全屏操作*/
+    document.querySelector("#fullScreen").onclick=function(){
+//        div.webkitRequestFullScreen();
+//        div.mozRequestFullScreen();
+//        div.msRequestFullscreen();
+        /*能力测试：判断当前浏览器或者元素是否拥有某个属性或者方法*/
+        if(div.requestFullScreen){
+            div.requestFullScreen();
+        }
+        else if(div.webkitRequestFullScreen){
+            div.webkitRequestFullScreen();
+        }
+        else if(div.mozRequestFullScreen){
+            div.mozRequestFullScreen();
+        }
+        else if(div.msRequestFullscreen){
+            div.msRequestFullscreen();
+        }
+    }
+
+    /*退出全屏不是让某一个元素退出全屏，而是让整个文档退出全屏，所以使用document*/
+    document.querySelector("#cancelFullScreen").onclick=function(){
+        /*能力测试
+        * 使用document*/
+        if(document.cancelFullScreen){
+            document.cancelFullScreen();
+        }
+        else if(document.webkitCancelFullScreen){
+            document.webkitCancelFullScreen();
+        }
+        else if(document.mozCancelFullScreen){
+            document.mozCancelFullScreen();
+        }
+        else if(document.msExitFullscreen){
+            document.msExitFullscreen();
+        }
+    }
+
+    document.querySelector("#isFullScreen").onclick=function(){
+        /*判断全屏是判断整个文档是否全屏，使用document*/
+        if(document.fullScreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement){
+            alert('它是全屏状态');
+        }
+        else {
+            alert('它no是全屏状态');
+        }
+    }
+</script>
+</body>
+</html>
